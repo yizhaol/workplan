@@ -43,39 +43,6 @@
         </el-card>
       </el-col>
     </el-row>
-
-    <!-- 管理员功能 -->
-    <el-card v-if="isAdmin" style="margin-top: 20px;">
-      <template #header>用户管理</template>
-      <el-table :data="users" v-loading="usersLoading">
-        <el-table-column prop="username" label="账号" width="150" />
-        <el-table-column prop="nickname" label="昵称" width="120" />
-        <el-table-column prop="email" label="邮箱" width="180" />
-        <el-table-column prop="role" label="角色" width="80">
-          <template #default="{ row }">
-            <el-tag size="small">{{ row.role === 'admin' ? '管理员' : '用户' }}</el-tag>
-          </template>
-        </el-table-column>
-        <el-table-column prop="status" label="状态" width="100">
-          <template #default="{ row }">
-            <el-switch 
-              v-model="row.status" 
-              active-value="active" 
-              inactive-value="disabled"
-              @change="toggleUserStatus(row)"
-            />
-          </template>
-        </el-table-column>
-        <el-table-column prop="last_login_at" label="最后登录" width="180" />
-        <el-table-column label="操作" width="150">
-          <template #default="{ row }">
-            <el-button-group>
-              <el-button size="small" @click="resetUserPassword(row)">重置密码</el-button>
-            </el-button-group>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-card>
   </div>
 </template>
 

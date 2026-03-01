@@ -29,9 +29,3 @@ export const reminderApi = {
   getRecords: (params) => request.get('/reminder/records', { params }),
   testReminder: (data) => request.post('/reminder/test', data)
 };
-
-export const statsApi = {
-  getPersonal: (params) => request.get('/stats/personal', { params }),
-  getAllUsers: (params) => request.get('/stats/all', { params }),
-  getUserStats: (userId) => request.get(`/stats/user/${userId}`)
-};

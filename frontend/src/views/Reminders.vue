@@ -85,22 +85,6 @@
         </el-card>
       </el-tab-pane>
 
-      <el-tab-pane v-if="isAdmin" label="系统配置" name="admin">
-        <el-card>
-          <template #header>全局提醒规则</template>
-          <p style="color: #909399;">管理员可在此处配置全局默认提醒规则</p>
-          <el-table :data="globalConfigs">
-            <el-table-column prop="reminder_type" label="类型" />
-            <el-table-column prop="channel" label="渠道" />
-            <el-table-column prop="time" label="时间" />
-            <el-table-column prop="can_modify" label="用户可修改">
-              <template #default="{ row }">
-                <el-switch v-model="row.can_modify" disabled />
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-card>
-      </el-tab-pane>
     </el-tabs>
 
     <!-- 添加/编辑配置弹窗 -->

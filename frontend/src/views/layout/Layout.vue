@@ -1,14 +1,14 @@
-﻿<template>
+<template>
   <div class="app-container">
     <el-container v-if="isLoggedIn">
       <el-aside width="220px" class="sidebar">
         <div class="logo">📋 WorkPlan</div>
         <el-menu
-            :default-active="$route.path"
-            router
-            background-color="#304156"
-            text-color="#bfcbd9"
-            active-text-color="#409EFF"
+          :default-active="$route.path"
+          router
+          background-color="#304156"
+          text-color="#bfcbd9"
+          active-text-color="#409EFF"
         >
           <el-menu-item index="/dashboard">
             <el-icon><DataAnalysis /></el-icon>
@@ -17,10 +17,6 @@
           <el-menu-item index="/tasks">
             <el-icon><List /></el-icon>
             <span>任务管理</span>
-          </el-menu-item>
-          <el-menu-item index="/stats">
-            <el-icon><TrendCharts /></el-icon>
-            <span>统计分析</span>
           </el-menu-item>
           <el-menu-item index="/reminders">
             <el-icon><Bell /></el-icon>
@@ -32,7 +28,6 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-
       <el-container>
         <el-header class="header">
           <div class="header-right">
@@ -50,13 +45,11 @@
             </el-dropdown>
           </div>
         </el-header>
-
         <el-main class="main">
           <router-view />
         </el-main>
       </el-container>
     </el-container>
-
     <router-view v-else />
   </div>
 </template>
@@ -66,7 +59,6 @@ import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-
 const user = computed(() => JSON.parse(localStorage.getItem('user') || 'null'));
 const isLoggedIn = computed(() => !!localStorage.getItem('token'));
 
